@@ -1,1 +1,1 @@
-# vue-chat-app
+# supabase-chat-app
