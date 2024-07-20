@@ -71,7 +71,7 @@ onMounted(async () => {
   <div class="container mx-auto py-[32px]">
     <div class="h-[calc(100vh-64px)] grid grid-rows-[auto_1fr_auto]">
       <header class="p-4 bg-gray-600 text-white rounded-t-md flex justify-between items-center">
-        <p class="text-xl">MyChatApp</p>
+        <p class="text-xl">Supabase-chat-app</p>
         <button type="button" class="text-sm" @click="handleSignOut">ログアウト</button>
       </header>
       <main class="p-4 bg-gray-200">
