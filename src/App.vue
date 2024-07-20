@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted } from 'vue';
+import { onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router'
 
 import { supabaseClient } from './libs/supabase/client';
