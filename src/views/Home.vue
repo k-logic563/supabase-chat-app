@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
 
 import { supabaseClient } from '../libs/supabase/client';
 import type { Database } from '../types/db'
@@ -7,6 +8,7 @@ import { onMounted } from 'vue';
 
 type DBMessage = Database['public']['Tables']['messages'];
 
+const router = useRouter();
 const userId = ref<string>('');
 const messageData = ref<DBMessage['Row'][]>([]);
 const formData = reactive<DBMessage['Insert']>({
@@ -16,6 +18,7 @@ const formData = reactive<DBMessage['Insert']>({
 const handleSignOut = async () => {
   try {
     await supabaseClient.auth.signOut()
+    await router.push('/login')
   } catch (e) {
     console.log(e)
   }

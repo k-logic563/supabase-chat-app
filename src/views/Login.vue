@@ -3,9 +3,9 @@ import { supabaseClient } from '../libs/supabase/client';
 
 const handleSigninWithAnonymous = async () => {
   try {
-    await supabaseClient.auth.signInAnonymously()
+    await supabaseClient.auth.signInAnonymously();
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
 }
 </script>

@@ -6,24 +6,21 @@ import { supabaseClient } from './libs/supabase/client';
 
 const router = useRouter();
 
-const { data: authListener } = supabaseClient.auth.onAuthStateChange(async (_: unknown, session) => {
-  if (!session) {
+const { data: authListener } = supabaseClient.auth.onAuthStateChange(async (event, session) => {
+  // サインイン
+  if (session && event === 'SIGNED_IN') {
+    await router.push('/');
+    return;
+  }
+  // サインアウト
+  if (!session && event === 'SIGNED_OUT') {
     await router.push('/login');
     return;
   }
-  await router.push('/');
 });
 
 onBeforeUnmount(() => {
   authListener.subscription.unsubscribe();
-});
-
-onMounted(async () => {
-  const session = await supabaseClient.auth.getSession();
-  if (!session.data) {
-    await router.push('/login');
-    return;
-  }
 });
 </script>
 
