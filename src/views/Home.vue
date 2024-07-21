@@ -71,7 +71,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container mx-auto py-[32px]">
+  <div class="max-w-[768px] mx-auto py-[32px]">
     <div class="h-[calc(100vh-64px)] grid grid-rows-[auto_1fr_auto]">
       <header class="p-4 bg-gray-600 text-white rounded-t-md flex justify-between items-center">
         <p class="text-xl">Supabase-chat-app</p>
@@ -82,7 +82,7 @@ onMounted(async () => {
           <li
             v-for="data in messageData"
             :key="data.id"
-            :class="['rounded-full', 'px-4', 'py-2', data.user_id === userId ? 'bg-green-400' : 'bg-gray-100']"
+            :class="['rounded-full', 'px-4', 'py-2', data.user_id === userId ? 'bg-green-400 ml-auto' : 'bg-gray-100']"
           >
           {{ data.message }}
         </li>
