@@ -5,8 +5,8 @@ import { useRouter, useRoute } from 'vue-router'
 import { supabaseClient } from '../libs/supabase/client';
 
 const router = useRouter();
-
 const route = useRoute();
+
 const { data: authListener } = supabaseClient.auth.onAuthStateChange(async (_: unknown, session) => {
   // セッション中、かつログインページ
   // トップへリダイレクト
